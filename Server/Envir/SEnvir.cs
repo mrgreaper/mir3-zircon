@@ -3060,7 +3060,7 @@ namespace Server.Envir
 
 
 
-            SendActivationEmail(account);
+            //SendActivationEmail(account);
 
             con.Enqueue(new S.NewAccount { Result = NewAccountResult.Success });
 

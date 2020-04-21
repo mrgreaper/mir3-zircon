@@ -657,6 +657,8 @@ namespace Server.DBModels
         {
             base.OnCreated();
 
+            Activated = true;
+
             StorageSize = Globals.StorageSize;
 
             BuffInfo buff = SEnvir.BuffInfoList.CreateNewObject();
