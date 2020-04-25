@@ -632,7 +632,6 @@ namespace Library.SystemModels
         ChangeElement,
         ChangeHorse,
         Message,
-
         Marriage,
         Divorce,
         RemoveWeddingRing,
@@ -641,6 +640,9 @@ namespace Library.SystemModels
         GiveItemExperience,
 
         SpecialRefine,
-        Rebirth
+        Rebirth,
+        LevelUp,
+        LevelDown,
+        DavesTest
     }
 }

@@ -59,10 +59,31 @@ namespace Server.Models
 
         private void DoActions(PlayerObject ob, NPCPage page)
         {
+            int tempLevel = 0;
             foreach (NPCAction action in page.Actions)
             {
                 switch (action.ActionType)
                 {
+                    case NPCActionType.DavesTest:
+                        ob.;
+                        break;
+                    case NPCActionType.LevelUp:
+                        tempLevel = ob.Level;
+                        if (tempLevel < 90){
+                            tempLevel++;
+                            ob.Level = tempLevel;
+                            ob.LevelUp();
+                        }
+                        break;
+                    case NPCActionType.LevelDown:
+                        tempLevel = ob.Level;
+                        if (tempLevel > 0)
+                        {
+                            tempLevel--;
+                            ob.Level = tempLevel;
+                            ob.LevelUp();
+                        }
+                        break;
                     case NPCActionType.Teleport:
                         if (action.MapParameter1 == null) return;
 
