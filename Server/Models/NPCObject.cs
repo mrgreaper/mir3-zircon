@@ -60,12 +60,18 @@ namespace Server.Models
         private void DoActions(PlayerObject ob, NPCPage page)
         {
             int tempLevel = 0;
+            int tempWearWeight = 0;
             foreach (NPCAction action in page.Actions)
             {
                 switch (action.ActionType)
                 {
+                    case NPCActionType.LevelSet:
+                        ob.Level = action.IntParameter1;
+                        ob.LevelUp();
+                        break;
                     case NPCActionType.DavesTest:
-                        ob.;
+                        ob.HandWeight = action.IntParameter1;
+                        ob.RefreshWeight();
                         break;
                     case NPCActionType.LevelUp:
                         tempLevel = ob.Level;

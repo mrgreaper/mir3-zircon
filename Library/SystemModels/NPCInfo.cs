@@ -643,6 +643,7 @@ namespace Library.SystemModels
         Rebirth,
         LevelUp,
         LevelDown,
+        LevelSet,
         DavesTest
     }
 }
