@@ -22,7 +22,7 @@ namespace Client
     public sealed class TargetForm : RenderForm
     {
         public bool Resizing { get; private set; }
-        public TargetForm() : base("Zircon Client")
+        public TargetForm() : base("Xtreme Client")
         {
             AutoScaleMode = AutoScaleMode.None;
 
@@ -30,7 +30,7 @@ namespace Client
 
             ClientSize = new Size(1024, 768);
             
-            Icon = Properties.Resources.Zircon;
+            Icon = Properties.Resources._7472;
             
             FormBorderStyle = (Config.FullScreen || Config.Borderless) ? FormBorderStyle.None : FormBorderStyle.FixedSingle;
 

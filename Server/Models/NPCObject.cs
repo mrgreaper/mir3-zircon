@@ -66,6 +66,9 @@ namespace Server.Models
             {
                 switch (action.ActionType)
                 {
+                    case NPCActionType.DavesTest:
+                        ob.FortuneCheck(0);
+                        break;
                     case NPCActionType.LevelSet:
                         ob.Level = action.IntParameter1;
                         ob.LevelUp();
@@ -92,10 +95,8 @@ namespace Server.Models
                         ob.Character.Account.GameGold = tempGameGold ;
                         ob.Enqueue(new S.GameGoldChanged { GameGold = ob.Character.Account.GameGold });
                         break;
-                    case NPCActionType.DavesTest:
-                        tempHuntGold = ob.Character.Account.HuntGold;
-                        ob.Character.Account.HuntGold = action.IntParameter1 + tempHuntGold;
-                        ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
+                    case NPCActionType.KillPlayer:
+                        ob.Die();
                         break;
                     case NPCActionType.LevelUp:
                         tempLevel = ob.Level;
