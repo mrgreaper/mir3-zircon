@@ -644,6 +644,10 @@ namespace Library.SystemModels
         LevelUp,
         LevelDown,
         LevelSet,
-        DavesTest
+        DavesTest,
+        HuntGoldAdd,
+        HuntGoldRemove,
+        GameGoldAdd,
+        GameGoldRemove,
     }
 }

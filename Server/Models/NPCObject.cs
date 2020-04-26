@@ -60,7 +60,8 @@ namespace Server.Models
         private void DoActions(PlayerObject ob, NPCPage page)
         {
             int tempLevel = 0;
-            int tempWearWeight = 0;
+            int tempHuntGold = 0;
+            int tempGameGold = 0;
             foreach (NPCAction action in page.Actions)
             {
                 switch (action.ActionType)
@@ -69,9 +70,32 @@ namespace Server.Models
                         ob.Level = action.IntParameter1;
                         ob.LevelUp();
                         break;
+                    case NPCActionType.HuntGoldAdd:
+                        tempHuntGold = ob.Character.Account.HuntGold;
+                        ob.Character.Account.HuntGold = action.IntParameter1 + tempHuntGold;
+                        ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
+                        break;
+                    case NPCActionType.HuntGoldRemove:
+                        tempHuntGold = ob.Character.Account.HuntGold - action.IntParameter1;
+                        if (tempHuntGold < 0) { tempHuntGold = 0; }
+                        ob.Character.Account.HuntGold = tempHuntGold;
+                        ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
+                        break;
+                    case NPCActionType.GameGoldAdd:
+                        tempGameGold = ob.Character.Account.GameGold;
+                        ob.Character.Account.GameGold = tempGameGold + action.IntParameter1;
+                        ob.Enqueue(new S.GameGoldChanged { GameGold = ob.Character.Account.GameGold });
+                        break;
+                    case NPCActionType.GameGoldRemove:
+                        tempGameGold = ob.Character.Account.GameGold - action.IntParameter1;
+                        if (tempGameGold < 0) { tempGameGold = 0; }
+                        ob.Character.Account.GameGold = tempGameGold ;
+                        ob.Enqueue(new S.GameGoldChanged { GameGold = ob.Character.Account.GameGold });
+                        break;
                     case NPCActionType.DavesTest:
-                        ob.HandWeight = action.IntParameter1;
-                        ob.RefreshWeight();
+                        tempHuntGold = ob.Character.Account.HuntGold;
+                        ob.Character.Account.HuntGold = action.IntParameter1 + tempHuntGold;
+                        ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
                         break;
                     case NPCActionType.LevelUp:
                         tempLevel = ob.Level;
