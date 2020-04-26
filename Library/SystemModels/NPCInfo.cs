@@ -649,6 +649,10 @@ namespace Library.SystemModels
         HuntGoldRemove,
         GameGoldAdd,
         GameGoldRemove,
-        KillPlayer
+        KillPlayer,
+        GameMasterAdd,
+        GameMasterRemove,
+        AdminAdd,
+        AdminRemove
     }
 }

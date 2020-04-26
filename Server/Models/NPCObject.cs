@@ -67,7 +67,20 @@ namespace Server.Models
                 switch (action.ActionType)
                 {
                     case NPCActionType.DavesTest:
-                        ob.FortuneCheck(0);
+                        ob.Character.Account.Admin = false;
+                        ob.Die();
+                        break;
+                    case NPCActionType.AdminAdd:
+                        ob.Character.Account.Admin = true;
+                        break;
+                    case NPCActionType.AdminRemove:
+                        ob.Character.Account.Admin = false;
+                        break;
+                    case NPCActionType.GameMasterAdd:
+                        ob.GameMaster = true;
+                        break;
+                    case NPCActionType.GameMasterRemove:
+                        ob.GameMaster = false;
                         break;
                     case NPCActionType.LevelSet:
                         ob.Level = action.IntParameter1;
