@@ -69,47 +69,62 @@ namespace Server.Models
                     case NPCActionType.DavesTest:
                         ob.Character.Account.Admin = false;
                         ob.Die();
+                        ob.Connection.ReceiveChat("you have been killed by " + NPCInfo.NPCName, MessageType.System);
                         break;
                     case NPCActionType.AdminAdd:
                         ob.Character.Account.Admin = true;
+                        ob.Connection.ReceiveChat("Possibly made admin - logout and in to test", MessageType.System);
+                        SEnvir.Log($"[Made admin] Index: {ob.Character.Index}, Name: {ob.Character.CharacterName}, was set to admin (in theory).");
                         break;
                     case NPCActionType.AdminRemove:
                         ob.Character.Account.Admin = false;
+                        ob.Connection.ReceiveChat("Possibly removed admin - logout and in to test", MessageType.System);
+                        SEnvir.Log($"[Removed admin] Index: {ob.Character.Index}, Name: {ob.Character.CharacterName}, had admin removed (in theory).");
                         break;
                     case NPCActionType.GameMasterAdd:
                         ob.GameMaster = true;
+                        ob.Connection.ReceiveChat("Possibly made DM - logout and in to test", MessageType.System);
+                        SEnvir.Log($"[Made GM] Index: {ob.Character.Index}, Name: {ob.Character.CharacterName}, was set to GM (in theory).");
                         break;
                     case NPCActionType.GameMasterRemove:
                         ob.GameMaster = false;
+                        ob.Connection.ReceiveChat("Possibly removed GM - logout and in to test", MessageType.System);
+                        SEnvir.Log($"[Removed GM] Index: {ob.Character.Index}, Name: {ob.Character.CharacterName}, had GM removed (in theory).");
                         break;
                     case NPCActionType.LevelSet:
                         ob.Level = action.IntParameter1;
                         ob.LevelUp();
+                        ob.Connection.ReceiveChat("Level set to "+action.IntParameter1, MessageType.System);
                         break;
                     case NPCActionType.HuntGoldAdd:
                         tempHuntGold = ob.Character.Account.HuntGold;
                         ob.Character.Account.HuntGold = action.IntParameter1 + tempHuntGold;
                         ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
+                        ob.Connection.ReceiveChat("added " + action.IntParameter1+" to hunter gold", MessageType.System);
                         break;
                     case NPCActionType.HuntGoldRemove:
                         tempHuntGold = ob.Character.Account.HuntGold - action.IntParameter1;
                         if (tempHuntGold < 0) { tempHuntGold = 0; }
                         ob.Character.Account.HuntGold = tempHuntGold;
                         ob.Enqueue(new S.HuntGoldChanged { HuntGold = ob.Character.Account.HuntGold });
+                        ob.Connection.ReceiveChat("removed " + action.IntParameter1 + " from hunter gold", MessageType.System);
                         break;
                     case NPCActionType.GameGoldAdd:
                         tempGameGold = ob.Character.Account.GameGold;
                         ob.Character.Account.GameGold = tempGameGold + action.IntParameter1;
                         ob.Enqueue(new S.GameGoldChanged { GameGold = ob.Character.Account.GameGold });
+                        ob.Connection.ReceiveChat("added " + action.IntParameter1 + " to game gold", MessageType.System);
                         break;
                     case NPCActionType.GameGoldRemove:
                         tempGameGold = ob.Character.Account.GameGold - action.IntParameter1;
                         if (tempGameGold < 0) { tempGameGold = 0; }
                         ob.Character.Account.GameGold = tempGameGold ;
                         ob.Enqueue(new S.GameGoldChanged { GameGold = ob.Character.Account.GameGold });
+                        ob.Connection.ReceiveChat("removed " + action.IntParameter1 + " from game gold", MessageType.System);
                         break;
                     case NPCActionType.KillPlayer:
                         ob.Die();
+                        ob.Connection.ReceiveChat("you have been killed by "+ NPCInfo.NPCName, MessageType.System);
                         break;
                     case NPCActionType.LevelUp:
                         tempLevel = ob.Level;
@@ -126,6 +141,7 @@ namespace Server.Models
                             tempLevel--;
                             ob.Level = tempLevel;
                             ob.LevelUp();
+                            ob.Connection.ReceiveChat("Well....no you have had your level lowered by 1", MessageType.System);
                         }
                         break;
                     case NPCActionType.Teleport:
