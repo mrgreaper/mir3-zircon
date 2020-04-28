@@ -16,7 +16,7 @@ namespace Client.Scenes.Views
     {
         #region Properties
         private DXTabControl TabControl;
-        private DXTab CharacterTab, StatsTab, HermitTab;
+        private DXTab CharacterTab, StatsTab, HermitTab ,TestTab;
         public DXLabel CharacterNameLabel, GuildNameLabel, GuildRankLabel;
 
         public DXImageControl MarriageIcon;
@@ -71,6 +71,12 @@ namespace Client.Scenes.Views
                 Parent = TabControl,
                 Border = true,
                 TabButton = { Label = { Text = "Hermit" } },
+            };
+            TestTab = new DXTab
+            {
+                Parent = TabControl,
+                Border = true,
+                TabButton = { Label = { Text = "Test" } },
             };
             DXControl namePanel = new DXControl
             {
@@ -1592,6 +1598,33 @@ namespace Client.Scenes.Views
                     CEnvir.Enqueue(new C.Hermit { Stat = Stat.WeaponElement });
                 }
             };
+
+            //test tab....well test
+
+            //lets put some text into the button
+            label = new DXLabel
+            {
+                Parent = TestTab,
+                Text = "Work in progress"
+            };
+            label.Location = new Point(TestTab.Size.Width / 4 - label.Size.Width + 25, 15);
+
+            //lets make the button
+            but = new DXButton
+            {
+                Parent = TestTab,
+                Location = new Point(100, but.Location.Y + 25),
+                Label = { Text = "Test button" },
+                ButtonType = ButtonType.SmallButton,
+                Size = new Size(80, SmallButtonHeight)
+            };
+            but.MouseClick += (o, e) =>
+            {
+                //so we do stuff here
+                CEnvir.Enqueue(new C.TestPushed { });
+            };
+
+
 
 
         }

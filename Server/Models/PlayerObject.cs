@@ -115,7 +115,7 @@ namespace Server.Models
 
         public override bool CanAttack => base.CanAttack && Horse == HorseType.None;
         public override bool CanCast => base.CanCast && Horse == HorseType.None;
-        
+
 
         public List<MonsterObject> Pets = new List<MonsterObject>();
 
@@ -151,6 +151,14 @@ namespace Server.Models
 
         public decimal SwiftBladeLifeSteal, FlameSplashLifeSteal, DestructiveSurgeLifeSteal;
 
+        public void testAction()
+        {
+            //Character.Account.HuntGold = 0;
+            //Enqueue(new S.HuntGoldChanged { HuntGold = Character.Account.HuntGold });
+            Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
+            SEnvir.Log($"[some one pressed the button!] Index: {Character.Index}, Name: {Character.CharacterName}, pressed the forbidden button of test!");
+            return;
+        }
         public PlayerObject(CharacterInfo info, SConnection con)
         {
             Character = info;

@@ -496,6 +496,12 @@ namespace Server.Envir
             if (Stage == GameStage.Observer)
                 Observed.Player.ObserverChat(this, p.Text);
         }
+
+        public void Process(C.TestPushed p)
+        {
+            if (Stage != GameStage.Game) return;
+            Player.testAction();
+        }
         public void Process(C.NPCCall p)
         {
             if (Stage != GameStage.Game) return;
