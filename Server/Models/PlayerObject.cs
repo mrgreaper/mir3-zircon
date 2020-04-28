@@ -5991,7 +5991,7 @@ namespace Server.Models
                                     return;
                             }
                             break;
-                        case 17:
+                        case 17: //adds 10 to player storage
 
                             int size = Character.Account.StorageSize + 10;
 
@@ -6007,7 +6007,7 @@ namespace Server.Models
                             Character.Account.StorageSize = size;
                             Enqueue(new S.StorageSize { Size = Character.Account.StorageSize });
                             break;
-                        case 18:
+                        case 18: //seems to summon a boss and gives armour?
                             if (item.Info.Stats[Stat.MapSummoning] > 0 && CurrentMap.HasSafeZone)
                             {
                                 Connection.ReceiveChat($"You cannot use [{item.Info.ItemName}] with maps that have a SafeZone.", MessageType.System);
@@ -6104,7 +6104,7 @@ namespace Server.Models
                                 }
                             }
                             break;
-                        case 19:
+                        case 19: //stat extractor (seems to take from weapon and give to armour?)
                             weapon = Equipment[(int)EquipmentSlot.Weapon];
 
                             if (weapon == null)
@@ -6177,7 +6177,7 @@ namespace Server.Models
                             RefreshStats();
 
                             break;
-                        case 20:
+                        case 20: //same as 19 but with out a check for added stats
                             weapon = Equipment[(int)EquipmentSlot.Weapon];
 
                             if (weapon == null)
@@ -6226,7 +6226,7 @@ namespace Server.Models
                             Enqueue(new S.ItemStatsRefreshed { Slot = (int)EquipmentSlot.Weapon, GridType = GridType.Equipment, NewStats = new Stats(weapon.Stats)});
                             RefreshStats();
                             break;
-                        case 21:
+                        case 21: //seems the same as 20
                             weapon = Equipment[(int)EquipmentSlot.Weapon];
 
                             if (weapon == null)
@@ -6347,6 +6347,32 @@ namespace Server.Models
 
                             Enqueue(new S.ItemStatsRefreshed { Slot = (int)EquipmentSlot.Weapon, GridType = GridType.Equipment, NewStats = new Stats(weapon.Stats) });
                             RefreshStats();
+                            break;
+                        case 23: //increase storage by the item stats "none" value
+                            int sizeByOne = Character.Account.StorageSize + item.Info.Stats[Stat.None];
+
+                            if (sizeByOne >= Storage.Length)
+                            {
+                                Connection.ReceiveChat(Connection.Language.StorageLimit, MessageType.System);
+
+                                foreach (SConnection con in Connection.Observers)
+                                    con.ReceiveChat(con.Language.StorageLimit, MessageType.System);
+                                return;
+                            }
+                            Character.Account.StorageSize = sizeByOne;
+                            Enqueue(new S.StorageSize { Size = Character.Account.StorageSize });
+                            break;
+                        case 24: //increase hunt gold by item stats "none" value
+                            int huntGold = Character.Account.HuntGold + item.Info.Stats[Stat.None];
+                            Character.Account.HuntGold = huntGold;
+                            Connection.ReceiveChat("HuntGold increased by " + item.Info.Stats[Stat.None], MessageType.System);
+                            Enqueue(new S.HuntGoldChanged { HuntGold = Character.Account.HuntGold });
+                            break;
+                        case 25: //increase Game gold by item stats "none" value
+                            int gameGold = Character.Account.GameGold + item.Info.Stats[Stat.None];
+                            Character.Account.GameGold = gameGold;
+                            Connection.ReceiveChat("GameGold increased by " + item.Info.Stats[Stat.None], MessageType.System);
+                            Enqueue(new S.GameGoldChanged { GameGold = Character.Account.GameGold });
                             break;
                     }
 
