@@ -1887,6 +1887,12 @@ namespace Server.Models
 
                         war.EndTime = DateTime.MinValue;
                         break;
+                    case "REBIRTH":
+                        if (!Character.Account.TempAdmin) return;
+                        if (parts.Length < 2) return;
+
+                        this.NPCRebirth();
+                        break;
                     case "TAKECASTLE":
                         if (!Character.Account.TempAdmin) return;
                         if (parts.Length < 2) return;
@@ -19160,7 +19166,8 @@ namespace Server.Models
                 Armour = Equipment[(int)EquipmentSlot.Armour]?.Info.Shape ?? 0,
                 ArmourColour = Equipment[(int)EquipmentSlot.Armour]?.Colour ?? Color.Empty,
                 ArmourImage = Equipment[(int)EquipmentSlot.Armour]?.Info.Image ?? 0,
-
+                EmblemShape = Equipment[(int)EquipmentSlot.Emblem]?.Info.Shape ?? 0,
+                WingsShape = Equipment[(int)EquipmentSlot.Wings]?.Info.Shape ?? 0,
 
                 Experience = Experience,
 
@@ -19237,7 +19244,8 @@ namespace Server.Models
                 Armour = Equipment[(int)EquipmentSlot.Armour]?.Info.Shape ?? 0,
                 ArmourColour = Equipment[(int)EquipmentSlot.Armour]?.Colour ?? Color.Empty,
                 ArmourImage = Equipment[(int)EquipmentSlot.Armour]?.Info.Image ?? 0,
-
+                EmblemShape = Equipment[(int)EquipmentSlot.Emblem]?.Info.Shape ?? 0,
+                Wings = Equipment[(int)EquipmentSlot.Wings]?.Info.Shape ?? 0,
 
 
                 Poison = Poison,
@@ -19284,7 +19292,8 @@ namespace Server.Models
                 Armour = Equipment[(int)EquipmentSlot.Armour]?.Info.Shape ?? 0,
                 ArmourColour = Equipment[(int)EquipmentSlot.Armour]?.Colour ?? Color.Empty,
                 ArmourImage = Equipment[(int)EquipmentSlot.Armour]?.Info.Image ?? 0,
-
+                EmblemShape = Equipment[(int)EquipmentSlot.Emblem]?.Info.Shape ?? 0,
+                WingsShape = Equipment[(int)EquipmentSlot.Wings]?.Info.Shape ?? 0,
                 Helmet = Character.HideHelmet ? 0 : Equipment[(int)EquipmentSlot.Helmet]?.Info.Shape ?? 0,
 
                 HorseArmour = Equipment[(int)EquipmentSlot.HorseArmour]?.Info.Shape ?? 0,
