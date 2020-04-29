@@ -155,6 +155,15 @@ namespace Server.Models
         {
             //Character.Account.HuntGold = 0;
             //Enqueue(new S.HuntGoldChanged { HuntGold = Character.Account.HuntGold });
+
+            /*
+            UserItem gainItem = null;
+            ItemInfo toGive = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.ItemName == "Healing Potion");
+            gainItem = SEnvir.CreateDropItem(toGive, 1);
+            GainItem(gainItem);
+            */
+            
+
             Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
             SEnvir.Log($"[some one pressed the button!] Index: {Character.Index}, Name: {Character.CharacterName}, pressed the forbidden button of test!");
             return;
@@ -1235,11 +1244,11 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format(Connection.Language.GlobalDelay, Math.Ceiling((Character.Account.GlobalTime - SEnvir.Now).TotalSeconds)), MessageType.System);
                         return;
                     }
-                    if (Level < 33 && Stats[Stat.GlobalShout] == 0)
+                    /*if (Level < 33 && Stats[Stat.GlobalShout] == 0)
                     {
                         Connection.ReceiveChat(Connection.Language.GlobalLevel, MessageType.System);
                         return;
-                    }
+                    }*/
 
                     Character.Account.GlobalTime = SEnvir.Now.AddSeconds(30);
                 }
@@ -1270,11 +1279,13 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format(Connection.Language.ShoutDelay, Math.Ceiling((ShoutTime - SEnvir.Now).TotalSeconds)), MessageType.System);
                         return;
                     }
+                    /*
                     if (Level < 2)
                     {
                         Connection.ReceiveChat(Connection.Language.ShoutLevel, MessageType.System);
                         return;
                     }
+                    */
                 }
 
                 text = string.Format("(!){0}: {1}", Name, text.Remove(0, 1));
@@ -6387,6 +6398,18 @@ namespace Server.Models
                             Character.Account.GameGold = gameGold;
                             Connection.ReceiveChat("GameGold increased by " + item.Info.Stats[Stat.None], MessageType.System);
                             Enqueue(new S.GameGoldChanged { GameGold = Character.Account.GameGold });
+                            break;
+                        case 26:
+                            /*UserItem InflatedPotions = null;
+                            ItemInfo toGive = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.ItemName == "Healing Potion");
+                            InflatedPotions = SEnvir.CreateDropItem(toGive, 2);
+                            GainItem(InflatedPotions);
+                            GainItem(InflatedPotions);
+                            GainItem(InflatedPotions);
+                            GainItem(InflatedPotions);
+                            GainItem(InflatedPotions);
+                            GainItem(InflatedPotions);
+                            */
                             break;
                     }
 
