@@ -6400,16 +6400,14 @@ namespace Server.Models
                             Enqueue(new S.GameGoldChanged { GameGold = Character.Account.GameGold });
                             break;
                         case 26:
-                            /*UserItem InflatedPotions = null;
+                            string bundleItem = item.Info.Stats[Stat.]
+                            UserItem InflatedPotions = null;
                             ItemInfo toGive = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.ItemName == "Healing Potion");
-                            InflatedPotions = SEnvir.CreateDropItem(toGive, 2);
-                            GainItem(InflatedPotions);
-                            GainItem(InflatedPotions);
-                            GainItem(InflatedPotions);
-                            GainItem(InflatedPotions);
-                            GainItem(InflatedPotions);
-                            GainItem(InflatedPotions);
-                            */
+                            InflatedPotions = SEnvir.CreateFreshItem(toGive);
+                            UserItem InflatedPotions2 = null;
+                            ItemInfo toGive2 = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.ItemName == "Healing Potion");
+                            InflatedPotions2 = SEnvir.CreateFreshItem(toGive2);
+                            GainItem(InflatedPotions, InflatedPotions2);                            
                             break;
                     }
 
