@@ -686,7 +686,7 @@ namespace Client.Scenes
                 ForgotPasswordLabel = new DXLabel()
                 {
                     Parent = this,
-                    Text = "Forgot Password?",
+                    Text = "Forgot Password? (not currently working)",
                     Sound = SoundIndex.ButtonC,
                 };
                 ForgotPasswordLabel.MouseEnter += (o, e) => ForgotPasswordLabel.ForeColour = Color.White;
@@ -1068,7 +1068,7 @@ namespace Client.Scenes
 
             public DXButton CreateButton, CancelButton;
             public DXTextBox EMailTextBox, Password1TextBox, Password2TextBox, RealNameTextBox, BirthDateTextBox, ReferralTextBox;
-            public DXLabel EMailHelpLabel, Password1HelpLabel, Password2HelpLabel, RealNameHelpLabel, BirthDateHelpLabel, ReferralHelpLabel;
+            public DXLabel EMailHelpLabel, Password1HelpLabel, Password2HelpLabel, RealNameHelpLabel, BirthDateHelpLabel, ReferralHelpLabel,statusLabel;
 
             public override void OnParentChanged(DXControl oValue, DXControl nValue)
             {
@@ -1100,6 +1100,13 @@ namespace Client.Scenes
                 };
                 CancelButton.MouseClick += (o, e) => Close();
                 CloseButton.MouseClick += (o, e) => Close();
+                statusLabel = new DXLabel
+                {
+                    Parent = this,
+                    Text = "Verification Status: Not Required",
+                    Location = new Point((Size.Width) / 2 - 80 - 10, Size.Height - 63),
+                    Size = new Size(180, DefaultHeight),
+                };
 
                 CreateButton = new DXButton
                 {
