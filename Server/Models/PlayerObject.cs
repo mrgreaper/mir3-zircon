@@ -162,8 +162,7 @@ namespace Server.Models
             gainItem = SEnvir.CreateDropItem(toGive, 1);
             GainItem(gainItem);
             */
-            
-
+           
             Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
             SEnvir.Log($"[some one pressed the button!] Index: {Character.Index}, Name: {Character.CharacterName}, pressed the forbidden button of test!");
             return;
@@ -1253,7 +1252,7 @@ namespace Server.Models
                     Character.Account.GlobalTime = SEnvir.Now.AddSeconds(30);
                 }
 
-                text = string.Format("(!@){0}: {1}", Name, text.Remove(0, 2));
+                text = string.Format("(Global){0}: {1}", Name, text.Remove(0, 2));
 
                 foreach (SConnection con in SEnvir.Connections)
                 {
@@ -1288,7 +1287,7 @@ namespace Server.Models
                     */
                 }
 
-                text = string.Format("(!){0}: {1}", Name, text.Remove(0, 1));
+                text = string.Format("(Shout){0}: {1}", Name, text.Remove(0, 1));
                 ShoutTime = SEnvir.Now + Config.ShoutDelay;
 
                 foreach (PlayerObject player in CurrentMap.Players)

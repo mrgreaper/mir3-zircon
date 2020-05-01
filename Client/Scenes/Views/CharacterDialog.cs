@@ -1601,7 +1601,7 @@ namespace Client.Scenes.Views
 
             //test tab....well test
 
-            //lets put some text into the button
+            //lets put some text into the tab
             label = new DXLabel
             {
                 Parent = TestTab,
