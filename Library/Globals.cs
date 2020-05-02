@@ -450,8 +450,8 @@ namespace Library
         public int EmblemShape { get; set; }
         public int WingsShape { get; set; }
 
-        public int EmblemShape { get; set; }
-        public int WingsShape { get; set; }
+        //public int EmblemShape { get; set; }
+        //public int WingsShape { get; set; }
         
         public decimal Experience { get; set; }
 

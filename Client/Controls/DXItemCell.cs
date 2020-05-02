@@ -30,7 +30,7 @@ namespace Client.Controls
         #endregion
 
         #region Properties
-        
+
         #region FixedBorder
 
         public bool FixedBorder
@@ -78,7 +78,7 @@ namespace Client.Controls
         }
 
         #endregion
-        
+
         #region GridType
 
         public GridType GridType
@@ -126,7 +126,7 @@ namespace Client.Controls
         }
 
         #endregion
-        
+
         #region Item
 
         public ClientUserItem Item
@@ -150,7 +150,7 @@ namespace Client.Controls
             }
             set
             {
-                if (ItemGrid[Slot] == value  || Linked || Slot >= ItemGrid.Length) return;
+                if (ItemGrid[Slot] == value || Linked || Slot >= ItemGrid.Length) return;
 
                 ClientUserItem oldValue = ItemGrid[Slot];
                 ItemGrid[Slot] = value;
@@ -213,7 +213,7 @@ namespace Client.Controls
         public void OnLockedChanged(bool oValue, bool nValue)
         {
             LockedChanged?.Invoke(this, EventArgs.Empty);
-            
+
             UpdateBorder();
         }
 
@@ -263,7 +263,7 @@ namespace Client.Controls
         public void OnSelectedChanged(bool oValue, bool nValue)
         {
             SelectedChanged?.Invoke(this, EventArgs.Empty);
-            
+
             UpdateBorder();
         }
 
@@ -318,7 +318,7 @@ namespace Client.Controls
         }
 
         #endregion
-        
+
         public ClientUserItem QuickInfoItem { get; private set; }
 
         #region QuickInfo
@@ -353,7 +353,7 @@ namespace Client.Controls
                 if (GridType == GridType.Belt)
                     GameScene.Game.BeltBox.Links[Slot].LinkInfoIndex = -1;
             }
-            
+
 
             RefreshItem();
             LinkedInfoChanged?.Invoke(this, EventArgs.Empty);
@@ -390,7 +390,7 @@ namespace Client.Controls
             {
                 GameScene.Game.BeltBox.Links[Slot].LinkItemIndex = -1;
             }
-           
+
             RefreshItem();
             LinkedItemChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -428,7 +428,7 @@ namespace Client.Controls
         }
 
         #endregion
-        
+
         #region LinkedCount
 
         public long LinkedCount
@@ -500,7 +500,7 @@ namespace Client.Controls
         }
 
         #endregion
-        
+
         public DXLabel CountLabel;
 
         public override void OnIsVisibleChanged(bool oValue, bool nValue)
@@ -513,7 +513,7 @@ namespace Client.Controls
         public override void OnBorderChanged(bool oValue, bool nValue)
         {
             base.OnBorderChanged(oValue, nValue);
-            
+
             TextureValid = false;
 
             UpdateBorder();
@@ -631,7 +631,7 @@ namespace Client.Controls
                 if (image != null)
                 {
                     Rectangle area = new Rectangle(DisplayArea.X, DisplayArea.Y, image.Width, image.Height);
-                    area.Offset((Size.Width - image.Width)/2, (Size.Height - image.Height)/2);
+                    area.Offset((Size.Width - image.Width) / 2, (Size.Height - image.Height) / 2);
                     ItemInfo info = Item.Info;
                     if (info.Effect == ItemEffect.ItemPart && Item.AddedStats[Stat.ItemIndex] > 0)
                     {
@@ -672,12 +672,12 @@ namespace Client.Controls
             BackColour = Color.Empty;
 
             if (!Enabled)
-                BackColour = Color.FromArgb(125,0,125,125);
+                BackColour = Color.FromArgb(125, 0, 125, 125);
             else if (Locked || Selected || (!Linked && Link != null))
                 BackColour = Color.FromArgb(125, 255, 125, 125);
 
             DrawTexture = MouseControl == this || !Enabled || Locked || Selected || FixedBorder || (!Linked && Link != null);
-            
+
             if (MouseControl == this || Locked || Selected || (!Linked && Link != null))
             {
                 if (!FixedBorderColour)
@@ -687,7 +687,7 @@ namespace Client.Controls
             else
             {
                 if (!FixedBorderColour)
-                   BorderColour = Color.FromArgb(99, 83, 50);
+                    BorderColour = Color.FromArgb(99, 83, 50);
                 Border = FixedBorder;
             }
         }
@@ -702,15 +702,15 @@ namespace Client.Controls
                     row.ItemCell.RefreshItem();
 
             if ((GridType == GridType.Belt || GridType == GridType.AutoPotion) && QuickInfo != null)
-                QuickInfoItem.Count = GameScene.Game.Inventory.Where(x => x?.Info == QuickInfo).Sum(x => x.Count) +( GameScene.Game.Companion?.InventoryArray.Where(x => x?.Info == QuickInfo).Sum(x => x.Count) ?? 0);
-            
+                QuickInfoItem.Count = GameScene.Game.Inventory.Where(x => x?.Info == QuickInfo).Sum(x => x.Count) + (GameScene.Game.Companion?.InventoryArray.Where(x => x?.Info == QuickInfo).Sum(x => x.Count) ?? 0);
+
             if (MouseControl == this)
             {
                 GameScene.Game.MouseItem = null;
                 GameScene.Game.MouseItem = Item;
             }
 
-            CountLabel.Visible = ShowCountLabel && Item != null && (Item.Info.Effect != ItemEffect.Gold && Item.Info.Effect != ItemEffect.Experience)  && (Item.Info.StackSize > 1 || Item.Count > 1);
+            CountLabel.Visible = ShowCountLabel && Item != null && (Item.Info.Effect != ItemEffect.Gold && Item.Info.Effect != ItemEffect.Experience) && (Item.Info.StackSize > 1 || Item.Count > 1);
             CountLabel.Text = Linked ? LinkedCount.ToString() : Item?.Count.ToString();
         }
         public void MoveItem()
@@ -764,8 +764,8 @@ namespace Client.Controls
                         //Don't want to move items around the character body (no point)
                         return;
                     }
-                    
-                    
+
+
                     if (Item == null || (SelectedCell.Item.Info == Item.Info && SelectedCell.Item.Count < SelectedCell.Item.Info.StackSize))
                         SelectedCell.MoveItem(this);
                     else
@@ -804,7 +804,7 @@ namespace Client.Controls
 
             if (fromCell == SelectedCell) SelectedCell = null;
 
-            if (!GameScene.Game.CanWearItem(fromCell.Item, (EquipmentSlot) Slot)) return;
+            if (!GameScene.Game.CanWearItem(fromCell.Item, (EquipmentSlot)Slot)) return;
 
             C.ItemMove packet = new C.ItemMove
             {
@@ -903,14 +903,14 @@ namespace Client.Controls
 
             if (toCell.GridType == GridType.AutoPotion)
             {
-                
+
                 if (GridType == toCell.GridType) return;
                 if (!Item.Info.CanAutoPot) return;
 
                 if (Selected) SelectedCell = null;
 
                 toCell.QuickInfo = Item.Info;
-                
+
                 GameScene.Game.AutoPotionBox.Rows[toCell.Slot].SendUpdate();
                 return;
             }
@@ -959,7 +959,7 @@ namespace Client.Controls
                         toCell.LinkedCount = window.Amount;
                         toCell.Link = this;
                     };
-                    
+
                     return;
                 }
 
@@ -968,7 +968,7 @@ namespace Client.Controls
                 return;
 
             }
-            
+
             C.ItemMove packet = new C.ItemMove
             {
                 FromGrid = GridType,
@@ -996,7 +996,7 @@ namespace Client.Controls
         {
             if (toGrid.GridType == GridType.Belt || toGrid.GridType == GridType.AutoPotion) return false;
 
-            
+
             C.ItemMove packet = new C.ItemMove
             {
                 FromGrid = GridType,
@@ -1497,9 +1497,6 @@ namespace Client.Controls
                 case ItemType.HorseArmour:
                     GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.HorseArmour].ToEquipment(this);
                     break;
-                case ItemType.Wings:
-                    GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.Wings].ToEquipment(this);
-                    break;
                 case ItemType.CompanionBag:
                     if (GameScene.Game.Companion != null)
                         GameScene.Game.CompanionBox.EquipmentGrid[(int)CompanionSlot.Bag].ToEquipment(this);
@@ -1516,14 +1513,14 @@ namespace Client.Controls
                 case ItemType.Scroll:
                 case ItemType.CompanionFood:
                 case ItemType.ItemPart:
-                    if (!GameScene.Game.CanUseItem(Item) || 
+                    if (!GameScene.Game.CanUseItem(Item) ||
                         GridType != GridType.Inventory && GridType != GridType.PartsStorage && GridType != GridType.CompanionEquipment && GridType != GridType.CompanionInventory) return false;
 
                     if ((CEnvir.Now < GameScene.Game.UseItemTime && Item.Info.Effect != ItemEffect.ElixirOfPurification) || MapObject.User.Horse != HorseType.None) return false;
 
 
                     GameScene.Game.UseItemTime = CEnvir.Now.AddMilliseconds(Math.Max(250, Item.Info.Durability));
-                    
+
 
                     Locked = true;
 
@@ -1535,7 +1532,7 @@ namespace Client.Controls
 
                     if (CEnvir.Now < GameScene.Game.UseItemTime || MapObject.User.Horse != HorseType.None) return false;
 
-                    
+
                     GameScene.Game.UseItemTime = CEnvir.Now.AddMilliseconds(250);
                     Locked = true;
 
@@ -1548,7 +1545,7 @@ namespace Client.Controls
                     switch (Item.Info.Effect)
                     {
                         case ItemEffect.GenderChange:
-                            if (GameScene.Game.CharacterBox.Grid[(int) EquipmentSlot.Armour].Item != null)
+                            if (GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.Armour].Item != null)
                             {
                                 GameScene.Game.ReceiveChat("You cannot change gender whilst you are wearing armour.", MessageType.System);
                                 return false;
@@ -1690,7 +1687,7 @@ namespace Client.Controls
                 if (SelectedCell == null)
                     return;
             }
-            
+
 
             switch (e.Button)
             {
@@ -1706,19 +1703,19 @@ namespace Client.Controls
                         if (Item == null || (GridType != GridType.Inventory && GridType != GridType.Storage && GridType != GridType.PartsStorage && GridType != GridType.GuildStorage && GridType != GridType.CompanionInventory) || Item.Count <= 1) return;
 
                         DXItemAmountWindow window = new DXItemAmountWindow("Item Split", Item);
-                        
+
                         window.ConfirmButton.MouseClick += (o, e1) =>
                         {
                             Locked = true;
                             CEnvir.Enqueue(new C.ItemSplit { Grid = GridType, Slot = Slot, Count = window.Amount });
                         };
-                        
+
                         return;
                     }
 
                     if (Item != null && SelectedCell == null)
                         PlayItemSound();
-                    
+
                     MoveItem();
                     break;
                 case MouseButtons.Middle:
@@ -1855,7 +1852,7 @@ namespace Client.Controls
                                 if (!Item.CanFragment())
                                     GameScene.Game.ReceiveChat($"Unable to Fragment {Item.Info.ItemName}, it cannot be Fragmented.", MessageType.System);
                                 else MoveItem(GameScene.Game.NPCItemFragmentBox.Grid);
-                                
+
                                 return;
                             }
 
@@ -1888,7 +1885,7 @@ namespace Client.Controls
                             {
                                 if (!MoveItem(GameScene.Game.NPCAccessoryResetBox.AccessoryGrid))
                                     GameScene.Game.ReceiveChat($"Unable to Reset {Item.Info.ItemName}.", MessageType.System);
-                                
+
 
                                 return;
                             }
@@ -1962,8 +1959,8 @@ namespace Client.Controls
                                 if (Item.Info.Effect == ItemEffect.ItemPart)
                                     MoveItem(GameScene.Game.StorageBox.PartGrid);
                                 else if (!MoveItem(GameScene.Game.StorageBox.Grid))
-                                        GameScene.Game.ReceiveChat("No Free Space in Storage.", MessageType.System);
-                                
+                                    GameScene.Game.ReceiveChat("No Free Space in Storage.", MessageType.System);
+
                                 return;
                             }
 
@@ -2256,7 +2253,7 @@ namespace Client.Controls
                                     GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
                                 return;
                             }
-                            
+
                             if (GameScene.Game.MarketPlaceBox.ConsignTab.IsVisible)
                             {
                                 MoveItem(GameScene.Game.MarketPlaceBox.ConsignGrid);
@@ -2268,7 +2265,7 @@ namespace Client.Controls
                         case GridType.Equipment:
 
                             if (Item == null) return;
-                            
+
                             if (GameScene.Game.NPCRepairBox.Visible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
@@ -2346,7 +2343,7 @@ namespace Client.Controls
             base.OnMouseDoubleClick(e);
 
             if (ReadOnly || e.Button != MouseButtons.Left) return;
-            
+
             switch (GridType)
             {
                 case GridType.Belt:
@@ -2359,10 +2356,10 @@ namespace Client.Controls
 
                     UseItem();
                     return;
-                    
+
                 case GridType.Storage:
                 case GridType.PartsStorage:
-                    
+
                     UseItem();
                     return;
                 case GridType.Equipment:
