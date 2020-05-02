@@ -6398,7 +6398,7 @@ namespace Server.Models
                             Connection.ReceiveChat("GameGold increased by " + item.Info.Stats[Stat.None], MessageType.System);
                             Enqueue(new S.GameGoldChanged { GameGold = Character.Account.GameGold });
                             break;
-                        case 26:
+                        case 26: //consumes the main item and spits out the item id set in Stat.none times the number set in bundle contents
                             int bundleItem = item.Info.Stats[Stat.None];
                             int bundleAmount = item.Info.Stats[Stat.BundleContents];
                             UserItem InflatedPotions = null;
@@ -6411,7 +6411,15 @@ namespace Server.Models
                                 GainItem(InflatedPotions);
                             }
                             break;
-                    }
+                        case 27: //concealed item turns 1 item into another
+                            int concealedItemID = item.Info.Stats[Stat.None];
+                            UserItem ConcealedUserItem = null;
+                            ItemInfo ConcealedItemInfo = null;
+                            ConcealedItemInfo = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.Index == concealedItemID);
+                            ConcealedUserItem = SEnvir.CreateFreshItem(ConcealedItemInfo);
+                            GainItem(ConcealedUserItem);
+                            break;
+                  }
 
                     if (item.Info.Effect != ItemEffect.ElixirOfPurification || UseItemTime < SEnvir.Now)
                         UseItemTime = SEnvir.Now.AddMilliseconds(item.Info.Durability);
