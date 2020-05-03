@@ -19,4 +19,73 @@
     <ProjectReference Include="..\ServerLibrary\ServerLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.BonusSkins.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Data.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Images.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.2.Core">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Office.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.2.Core">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Pdf.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.2.Core">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Printing.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.2.Core">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.RichEdit.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.2.Export">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.RichEdit.v18.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.2.Core">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.Utils.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraBars.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraEditors.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraGrid.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraLayout.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraNavBar.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraPrinting.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraRichEdit.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.2">
+      <HintPath>G:\New test\mir3-zircon-master\Components\DevExpress\DevExpress.XtraTreeList.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedSquish">
+      <HintPath>G:\New test\mir3-zircon-master\Components\ManagedSquish.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x64">
+      <HintPath>G:\New test\mir3-zircon-master\Components\NativeSquish_x64.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x86">
+      <HintPath>G:\New test\mir3-zircon-master\Components\NativeSquish_x86.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX">
+      <HintPath>G:\New test\mir3-zircon-master\Components\SlimDX.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

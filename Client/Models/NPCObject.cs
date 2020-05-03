@@ -84,7 +84,7 @@ namespace Client.Models
 
             UpdateQuests();
         }
-        
+
 
         public override void SetAnimation(ObjectAction action)
         {
@@ -113,7 +113,7 @@ namespace Client.Models
         public override void DrawBlend()
         {
             if (BodyLibrary == null) return;
-            
+
             DXManager.SetBlend(true, 0.60F);
             DrawBody();
             DXManager.SetBlend(false);
@@ -147,7 +147,7 @@ namespace Client.Models
                 startIndex = 1080;
             else if ((CurrentIcon & QuestIcon.QuestIncomplete) == QuestIcon.QuestIncomplete)
                 startIndex = 1090;
-            
+
             QuestEffect = new MirEffect(startIndex, 2, TimeSpan.FromMilliseconds(500), LibraryFile.GameInter, 0, 0, Color.Empty)
             {
                 Loop = true,
@@ -178,4 +178,3 @@ namespace Client.Models
 
 
 }
-

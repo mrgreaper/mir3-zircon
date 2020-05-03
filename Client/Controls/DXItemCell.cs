@@ -1497,9 +1497,6 @@ namespace Client.Controls
                 case ItemType.HorseArmour:
                     GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.HorseArmour].ToEquipment(this);
                     break;
-                case ItemType.Wings:
-                    GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.Wings].ToEquipment(this);
-                    break;
                 case ItemType.CompanionBag:
                     if (GameScene.Game.Companion != null)
                         GameScene.Game.CompanionBox.EquipmentGrid[(int)CompanionSlot.Bag].ToEquipment(this);

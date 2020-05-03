@@ -222,11 +222,11 @@ namespace Client.Models
 
         public int ArmourImage;
 
-        public bool DrawWeapon;
-
         public int EmblemShape;
 
         public int WingsShape;
+
+        public bool DrawWeapon;
 
 
         public int CharacterIndex;
@@ -1124,11 +1124,6 @@ namespace Client.Models
                 case 16:
                     library.DrawBlend(4678 + GameScene.Game.MapControl.Animation / 2 % 8 + (int)Direction * 20, DrawX, DrawY, Color.White, useOffSet: true, 1f, ImageType.Image, 0);
                     break;
-                case 17: // Added shape 17 from the emblem shapes, this works....suggesting the zl file for the wings may 
-                    library.DrawBlend(90 + GameScene.Game.MapControl.Animation / 2 % 24, DrawX, DrawY, Color.White, useOffSet: true, 1f, ImageType.Image, 0);
-                    library.DrawBlend(140 + GameScene.Game.MapControl.Animation / 2 % 28, DrawX, DrawY, Color.White, useOffSet: true, 1f, ImageType.Image, 0);
-                    break;
-            }
             }
 
             if (CEnvir.LibraryList.TryGetValue(LibraryFile.MonMagicEx26, out library))

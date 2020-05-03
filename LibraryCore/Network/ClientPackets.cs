@@ -143,6 +143,11 @@ namespace Library.Network.ClientPackets
         public long Count { get; set; }
     }
 
+    public sealed class TestPushed : Packet
+    {
+
+    }
+
     public sealed class ItemDrop : Packet
     {
         public CellLinkInfo Link { get; set; }
