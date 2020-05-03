@@ -6417,7 +6417,8 @@ namespace Server.Models
                             for (int i = 0; i < bundleAmount; i++)
                             {
                                 toGive = SEnvir.ItemInfoList.Binding.FirstOrDefault(x => x.Index == bundleItem);
-                                InflatedPotions = SEnvir.CreateFreshItem(toGive);
+                                InflatedPotions = SEnvir.CreateDropItem(toGive, 1);
+                                //InflatedPotions = SEnvir.CreateFreshItem(toGive);
                                 GainItem(InflatedPotions);
                             }
                             break;
