@@ -39,6 +39,33 @@ namespace MirDB
 
         private Dictionary<Type, ADBCollection> Collections;
 
+        public Session(string connectionString)
+        {
+            if (string.IsNullOrEmpty(connectionString))
+                throw new ArgumentNullException(nameof(connectionString), "Database:DBConnStr is empty");
+
+            var args = connectionString.Split(';').Select(x => x.Split(new char[] { '=' }, 1)).ToDictionary(x => x[0].ToUpperInvariant(), x => x[1]);
+
+            if (!args.ContainsKey("MODE") || !args.ContainsKey("ROOT") || !args.ContainsKey("BACKUP"))
+                throw new ArgumentException($"Connection string is not valid");
+
+            if (!Enum.TryParse<SessionMode>(args["MODE"], out SessionMode mode))
+                throw new ArgumentException($"{args["MODE"]} is not valid option for Mode");
+
+            if (args.ContainsKey("BACKUPDELAY"))
+            {
+                if (!int.TryParse(args["BACKUPDELAY"], out int backupDelay))
+                    throw new ArgumentException($"{args["BACKUPDELAY"]} is not valid number");
+                BackUpDelay = backupDelay;
+            }
+
+            Root = args["ROOT"];
+            BackupRoot = args["BACKUP"];
+            Mode = mode;
+
+            Initialize();
+        }
+
         public Session(SessionMode mode, string root = @".\Database\", string backup = @".\Backup\")
         {
             Root = root;
@@ -76,19 +103,7 @@ namespace MirDB
             Parallel.ForEach(Relationships, x => x.Value.ConsumeKeys(this));
 
             Relationships = null;
-            /*
-            DBCollection<ItemInfo> itemList = GetCollection<ItemInfo>();
-
-            ItemInfo Female = (ItemInfo)itemList.GetObjectByIndex(1100);
-            ItemInfo Male = (ItemInfo)itemList.GetObjectByIndex(1043);
-
-            int maleIndex = itemList.Binding.IndexOf(Male );
-            Female.Index = 1044;
-            itemList.Binding.Remove(Female);
-            itemList.Binding.Insert(maleIndex  + 1, Female);
-               */
-            
-
+       
             foreach (KeyValuePair<Type, ADBCollection> pair in Collections)
                 pair.Value.OnLoaded();
         }

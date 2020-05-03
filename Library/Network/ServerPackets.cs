@@ -22,7 +22,7 @@ namespace Library.Network.ServerPackets
         public LoginResult Result { get; set; }
 
         public string Message { get; set; }
-        public TimeSpan Duration { get; set; } 
+        public TimeSpan Duration { get; set; }
 
         public List<SelectInfo> Characters { get; set; }
         public List<ClientUserItem> Items { get; set; }
@@ -60,14 +60,14 @@ namespace Library.Network.ServerPackets
     {
         public List<SelectInfo> Characters { get; set; }
     }
-    
+
     public sealed class NewCharacter : Packet
     {
         public NewCharacterResult Result { get; set; }
 
         public SelectInfo Character { get; set; }
     }
-    
+
     public sealed class DeleteCharacter : Packet
     {
         public DeleteCharacterResult Result { get; set; }
@@ -175,7 +175,7 @@ namespace Library.Network.ServerPackets
 
         public MirDirection Direction { get; set; }
         public Point CurrentLocation { get; set; }
-        
+
         public MagicType Type { get; set; }
         public List<uint> Targets { get; set; } = new List<uint>();
         public List<Point> Locations { get; set; } = new List<Point>();
@@ -226,7 +226,7 @@ namespace Library.Network.ServerPackets
         public Effect Effect { get; set; }
         public MirDirection Direction { get; set; }
     }
-    
+
     public sealed class ObjectBuffAdd : Packet
     {
         public uint ObjectID { get; set; }
@@ -256,7 +256,7 @@ namespace Library.Network.ServerPackets
 
         public MirClass Class { get; set; }
         public MirGender Gender { get; set; }
-        
+
         public int HairType { get; set; }
         public Color HairColour { get; set; }
         public int Weapon { get; set; }
@@ -285,10 +285,10 @@ namespace Library.Network.ServerPackets
         public int MonsterIndex { get; set; }
         public Color NameColour { get; set; }
         public string PetOwner { get; set; }
-        
+
         public MirDirection Direction { get; set; }
         public Point Location { get; set; }
-        
+
         public bool Dead { get; set; }
         public bool Skeleton { get; set; }
 
@@ -321,7 +321,7 @@ namespace Library.Network.ServerPackets
         public uint ObjectID { get; set; }
 
         public ClientUserItem Item { get; set; }
-        
+
         public Point Location { get; set; }
     }
     public sealed class ObjectSpell : Packet
@@ -655,7 +655,7 @@ namespace Library.Network.ServerPackets
     {
         public string Name { get; set; }
     }
-    
+
     public sealed class BuffAdd : Packet
     {
         public ClientBuffInfo Buff { get; set; }
@@ -685,7 +685,7 @@ namespace Library.Network.ServerPackets
     }
     public sealed class CombatTime : Packet
     {
-        
+
     }
     public sealed class Inspect : Packet
     {
@@ -862,7 +862,7 @@ namespace Library.Network.ServerPackets
 
     public sealed class GuildCreate : Packet
     {
-        
+
     }
     public sealed class GuildInfo : Packet
     {
@@ -921,7 +921,7 @@ namespace Library.Network.ServerPackets
     }
     public sealed class GuildInviteMember : Packet
     {
-        
+
     }
     public sealed class GuildInvite : Packet
     {
@@ -1024,7 +1024,7 @@ namespace Library.Network.ServerPackets
     {
         public ClientUserQuest Quest { get; set; }
     }
-    
+
     public sealed class CompanionUnlock : Packet
     {
         public int Index { get; set; }
@@ -1084,7 +1084,7 @@ namespace Library.Network.ServerPackets
     }
     public sealed class MarriageRemoveRing : Packet
     {
-        
+
     }
     public sealed class MarriageMakeRing : Packet
     {
@@ -1107,7 +1107,7 @@ namespace Library.Network.ServerPackets
         public Point CurrentLocation { get; set; }
 
         public string Name { get; set; }
-        
+
         public int Health { get; set; }
         public int Mana { get; set; }
         public bool Dead { get; set; }
@@ -1125,11 +1125,11 @@ namespace Library.Network.ServerPackets
         public MonsterInfo MonsterInfo;
         public int MonsterIndex { get; set; }
         public string PetOwner { get; set; }
-        
+
         public int Health { get; set; }
         public Stats Stats { get; set; }
         public bool Dead { get; set; }
-        
+
         [CompleteObject]
         public void OnComplete()
         {

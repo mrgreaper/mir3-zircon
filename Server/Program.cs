@@ -6,6 +6,7 @@ using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using Library;
 using Server.Envir;
+using System.Reflection;
 
 namespace Server
 {
@@ -17,7 +18,9 @@ namespace Server
         [STAThread]
         static void Main()
         {
-            ConfigReader.Load();
+            var assembly = Assembly.GetAssembly(typeof(Config));
+            ConfigReader.Load(assembly);
+
             Config.LoadVersion();
 
             GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
@@ -33,5 +36,6 @@ namespace Server
 
             ConfigReader.Save();
         }
+
     }
 }
