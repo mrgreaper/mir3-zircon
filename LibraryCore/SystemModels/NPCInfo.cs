@@ -641,6 +641,19 @@ namespace Library.SystemModels
         GiveItemExperience,
 
         SpecialRefine,
-        Rebirth
+        Rebirth,
+        DavesTest,
+        AdminAdd,
+        AdminRemove,
+        GameMasterAdd,
+        GameMasterRemove,
+        LevelSet,
+        HuntGoldAdd,
+        HuntGoldRemove,
+        GameGoldAdd,
+        GameGoldRemove,
+        KillPlayer,
+        LevelUp,
+        LevelDown
     }
 }

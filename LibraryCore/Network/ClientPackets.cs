@@ -136,11 +136,16 @@ namespace Library.Network.ClientPackets
         public bool MergeItem { get; set; }
     }
 
-    public sealed class ItemSplit : Packet 
+    public sealed class ItemSplit : Packet
     {
         public GridType Grid { get; set; }
         public int Slot { get; set; }
         public long Count { get; set; }
+    }
+
+    public sealed class TestPushed : Packet
+    {
+
     }
 
     public sealed class ItemDrop : Packet

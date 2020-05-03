@@ -770,6 +770,10 @@ namespace Library
 
         [StatDescription(Title = "Duration", Mode = StatType.Time)]
         Duration = 10000,
+
+        [StatDescription(Title = "BundleContents", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+
+        BundleContents,
     }
 
     public enum StatSource

@@ -64,82 +64,92 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v18.2">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.BonusSkins.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.BonusSkins.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v18.2">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.Data.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Data.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Images.v18.2">
-      <HintPath>..\Components\DevExpress\DevExpress.Images.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.Images.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Images.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Office.v18.2.Core">
-      <HintPath>..\Components\DevExpress\DevExpress.Office.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Office.v18.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.v18.2.Core">
-      <HintPath>..\Components\DevExpress\DevExpress.Pdf.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Pdf.v18.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.v18.2.Core">
-      <HintPath>..\Components\DevExpress\DevExpress.Printing.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Printing.v18.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v18.2.Core">
-      <HintPath>..\Components\DevExpress\DevExpress.RichEdit.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.RichEdit.v18.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v18.2.Export">
-      <HintPath>..\Components\DevExpress\DevExpress.RichEdit.v18.2.Export.dll</HintPath>
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.RichEdit.v18.2.Export.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v18.2.Core">
-      <HintPath>..\Components\DevExpress\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v18.2">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.Utils.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.Utils.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.XtraBars.v18.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraBars.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v18.2">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.XtraEditors.v18.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraLayout.v18.2">
-      <HintPath>..\Components\DevExpress\DevExpress.XtraLayout.v18.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.XtraPrinting.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraEditors.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.XtraGrid.v18.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraGrid.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraLayout.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\Components\DevExpress\DevExpress.XtraNavBar.v18.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraNavBar.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraRichEdit.v18.2">
-      <HintPath>..\Components\DevExpress\DevExpress.XtraRichEdit.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraPrinting.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v18.2">
-      <HintPath>..\Components\DevExpress\DevExpress.XtraTreeList.v18.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraRichEdit.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraRichEdit.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="ManagedSquish">
-      <HintPath>..\Components\ManagedSquish.dll</HintPath>
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\DevExpress\DevExpress.XtraTreeList.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="NativeSquish_x64">
-      <HintPath>..\Components\NativeSquish_x64.dll</HintPath>
-    </Reference>
-    <Reference Include="NativeSquish_x86">
-      <HintPath>..\Components\NativeSquish_x86.dll</HintPath>
-    </Reference>
-    <Reference Include="SlimDX, Version=4.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=AMD64">
-      <HintPath>..\Components\SlimDX.dll</HintPath>
+    <Reference Include="ManagedSquish, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\ManagedSquish.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x64, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\NativeSquish_x64.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x86, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Test\Components\NativeSquish_x86.dll</HintPath>
     </Reference>
     <Reference Include="SlimDX, Version=4.0.13.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=AMD64" />
     <Reference Include="System" />
