@@ -126,23 +126,23 @@ namespace Server.Models
             {
                 case -1:
                     return new Guard { MonsterInfo = monsterInfo };
-                case 1:
+                case 1: //chicken
                     return new MonsterObject { MonsterInfo = monsterInfo, Passive = true, NeedHarvest = true, HarvestCount = 2 };
-                case 2:
+                case 2: //pig deer cow sheep
                     return new MonsterObject { MonsterInfo = monsterInfo, Passive = true, NeedHarvest = true, HarvestCount = 3 };
-                case 3:
+                case 3: //wolf scorpion
                     return new MonsterObject { MonsterInfo = monsterInfo, NeedHarvest = true, HarvestCount = 3 };
-                case 4:
+                case 4:  //chestnut tree some stones a box
                     return new TreeMonster { MonsterInfo = monsterInfo };
-                case 5:
+                case 5: //canivorus plant
                     return new CarnivorousPlant { MonsterInfo = monsterInfo, NeedHarvest = true, HarvestCount = 2 };
                 case 6:
                     return new SpittingSpider { MonsterInfo = monsterInfo, NeedHarvest = true, HarvestCount = 2, PoisonType = PoisonType.Green };
                 case 7:
                     return new SkeletonAxeThrower { MonsterInfo = monsterInfo };
-                case 8:
+                case 8: //Cave Maggot, Spider Bat, Wedge Moth
                     return new MonsterObject { MonsterInfo = monsterInfo, NeedHarvest = true, HarvestCount = 2, PoisonType = PoisonType.Paralysis, PoisonTicks = 1, PoisonFrequency = 5, PoisonRate = 12 };
-                case 9:
+                case 9: 
                     return new GhostSorcerer { MonsterInfo = monsterInfo };
                 case 10:
                     return new GhostMage { MonsterInfo = monsterInfo };
@@ -210,13 +210,13 @@ namespace Server.Models
                     return new MonsterObject { MonsterInfo = monsterInfo };
                 case 36:
                     return new NumaMage { MonsterInfo = monsterInfo };
-                case 37:
+                case 37: //Shock Minotaur
                     return new MonsterObject { MonsterInfo = monsterInfo };
                 case 38:
                     return new BanyaLeftGuard { MonsterInfo = monsterInfo };
-                case 39:
+                case 39: //Fury Minotaur
                     return new MonsterObject { MonsterInfo = monsterInfo };
-                case 40:
+                case 40: //Flame Minotaur
                     return new MonsterObject { MonsterInfo = monsterInfo };
                 case 41:
                     return new EmperorSaWoo { MonsterInfo = monsterInfo };
@@ -549,7 +549,7 @@ namespace Server.Models
                     return new BanyoWarrior { MonsterInfo = monsterInfo, DoubleDamage = true };
                 case 118:
                     return new OmaMage { MonsterInfo = monsterInfo };
-                case 119:
+                case 119: //MonasteryGhoul
                     return new MonsterObject
                     {
                         MonsterInfo = monsterInfo,
