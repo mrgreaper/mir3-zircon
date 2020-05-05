@@ -908,7 +908,7 @@ namespace Server.Models
 
         public virtual void ProcessAI()
         {
-            if (Dead) return;
+            if (Dead) return; //love that...if dead forget about the ai lol
 
             if (PetOwner?.Node != null)
             {

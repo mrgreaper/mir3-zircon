@@ -2048,6 +2048,17 @@ namespace Client.Models
                     StruckSound = SoundIndex.OmaStruck;
                     DieSound = SoundIndex.OmaDie;
                     break;
+
+                case MonsterImage.CloakedWolfManSword:
+                    CEnvir.LibraryList.TryGetValue(LibraryFile.mon26_1, out BodyLibrary);
+                    BodyShape = 0;
+                    AttackSound = SoundIndex.CloakedWolfManSwordAttack;
+                    StruckSound = SoundIndex.CloakedWolfManSwordStruck;
+                    DieSound = SoundIndex.CloakedWolfManSwordDie;
+                    foreach (KeyValuePair<MirAnimation, Frame> frame in FrameSet.CloackedCloakedWolfManSword)
+                        Frames[frame.Key] = frame.Value;
+                    break;
+
                 default:
                     CEnvir.LibraryList.TryGetValue(LibraryFile.Mon_1, out BodyLibrary);
                     BodyShape = 0;

@@ -935,6 +935,7 @@ namespace Library
         MonasteryMon5,
         MonasteryMon6,
         Fred,
+        CloakedWolfManSword,
     }
 
     
@@ -2383,6 +2384,10 @@ namespace Library
         WhiteTigerAttack,
         WhiteTigerStruck,
         WhiteTigerDie,
+
+        CloakedWolfManSwordAttack,
+        CloakedWolfManSwordDie,
+        CloakedWolfManSwordStruck,
 
 
 

@@ -921,6 +921,10 @@ namespace Client.Envir
             [SoundIndex.BlueDragonStruck] = new DXSound(SoundPath + @"403-4.wav", SoundType.Monster),
             [SoundIndex.BlueDragonDie] = new DXSound(SoundPath + @"403-5.wav", SoundType.Monster),
 
+            [SoundIndex.CloakedWolfManSwordAttack] = new DXSound(SoundPath + @"CloakedWolfManSwordAttack.wav",SoundType.Monster),
+            [SoundIndex.CloakedWolfManSwordStruck] = new DXSound(SoundPath + @"CloakedWolfManSwordStruck.wav", SoundType.Monster),
+            [SoundIndex.CloakedWolfManSwordDie] = new DXSound(SoundPath + @"CloakedWolfManSwordDie.wav", SoundType.Monster),
+
             #endregion
         };
 
