@@ -2059,6 +2059,16 @@ namespace Client.Models
                         Frames[frame.Key] = frame.Value;
                     break;
 
+                case MonsterImage.CloackedWolfManHorse:
+                    CEnvir.LibraryList.TryGetValue(LibraryFile.mon26_1, out BodyLibrary);
+                    BodyShape = 0;
+                    AttackSound = SoundIndex.CloakedWolfManSwordAttack;
+                    StruckSound = SoundIndex.CloakedWolfManSwordStruck;
+                    DieSound = SoundIndex.CloakedWolfManSwordDie;
+                    foreach (KeyValuePair<MirAnimation, Frame> frame in FrameSet.CloakedWolfManHorse)
+                        Frames[frame.Key] = frame.Value;
+                    break;
+
                 default:
                     CEnvir.LibraryList.TryGetValue(LibraryFile.Mon_1, out BodyLibrary);
                     BodyShape = 0;

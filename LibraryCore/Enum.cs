@@ -936,6 +936,7 @@ namespace Library
         MonasteryMon6,
         Fred,
         CloakedWolfManSword,
+        CloackedWolfManHorse,
     }
 
     

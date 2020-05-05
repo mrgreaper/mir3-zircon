@@ -40,7 +40,7 @@ namespace Library
             LobsterLord, LobsterSpawn,
 
             DeadTree, BobbitWorm,
-            MonasteryMon1, MonasteryMon3, CloackedCloakedWolfManSword;
+            MonasteryMon1, MonasteryMon3, CloackedCloakedWolfManSword, CloakedWolfManHorse;
 
 
         static FrameSet()
@@ -132,6 +132,15 @@ namespace Library
             };
 
             CloackedCloakedWolfManSword = new Dictionary<MirAnimation, Frame>
+            {
+                [MirAnimation.Standing] = new Frame(0, 4, 10, TimeSpan.FromMilliseconds(500)),
+                [MirAnimation.Walking] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Pushed] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(50)) { Reversed = true, StaticSpeed = true },
+                [MirAnimation.Die] = new Frame(260, 10, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Dead] = new Frame(269, 1, 10, TimeSpan.FromMilliseconds(1000)),
+            };
+
+            CloakedWolfManHorse = new Dictionary<MirAnimation, Frame>
             {
                 [MirAnimation.Standing] = new Frame(0, 4, 10, TimeSpan.FromMilliseconds(500)),
                 [MirAnimation.Walking] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(100)),
