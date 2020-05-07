@@ -40,7 +40,13 @@ namespace Library
             LobsterLord, LobsterSpawn,
 
             DeadTree, BobbitWorm,
-            MonasteryMon1, MonasteryMon3, CloackedCloakedWolfManSword, CloakedWolfManHorse;
+            MonasteryMon1, 
+            MonasteryMon3, 
+            CloackedCloakedWolfManSword, 
+            CloakedWolfManHorse, 
+            HornedDemon,
+            RoundJawedFlea
+            ;
 
 
         static FrameSet()
@@ -129,6 +135,24 @@ namespace Library
                 [MirAnimation.Hide] = new Frame(640, 10, 10, TimeSpan.FromMilliseconds(100)) { Reversed = true },
                 [MirAnimation.StoneStanding] = new Frame(640, 1, 10, TimeSpan.FromMilliseconds(500)),
                 //Die etc etc
+            };
+
+            HornedDemon = new Dictionary<MirAnimation, Frame>
+            {
+                [MirAnimation.Standing] = new Frame(0, 4, 10, TimeSpan.FromMilliseconds(500)),
+                [MirAnimation.Walking] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Pushed] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(50)) { Reversed = true, StaticSpeed = true },
+                [MirAnimation.Die] = new Frame(260, 10, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Dead] = new Frame(269, 1, 10, TimeSpan.FromMilliseconds(1000)),
+            };
+
+            RoundJawedFlea = new Dictionary<MirAnimation, Frame>
+            {
+                [MirAnimation.Standing] = new Frame(0, 4, 10, TimeSpan.FromMilliseconds(500)),
+                [MirAnimation.Walking] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Pushed] = new Frame(80, 6, 10, TimeSpan.FromMilliseconds(50)) { Reversed = true, StaticSpeed = true },
+                [MirAnimation.Die] = new Frame(260, 10, 10, TimeSpan.FromMilliseconds(100)),
+                [MirAnimation.Dead] = new Frame(269, 1, 10, TimeSpan.FromMilliseconds(1000)),
             };
 
             CloackedCloakedWolfManSword = new Dictionary<MirAnimation, Frame>

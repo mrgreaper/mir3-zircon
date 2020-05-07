@@ -937,6 +937,8 @@ namespace Library
         Fred,
         CloakedWolfManSword,
         CloackedWolfManHorse,
+        HornedDemon,
+        RoundJawedFlea,
     }
 
     
@@ -1316,6 +1318,7 @@ namespace Library
         QuartzTurtleSub = 205,
 
         Sacrafice = 210,
+        CloackedWolfManHorseRider = 211, ///not sure what the number is for?
     }
 
     #region Packet Enums
@@ -2389,6 +2392,9 @@ namespace Library
         CloakedWolfManSwordAttack,
         CloakedWolfManSwordDie,
         CloakedWolfManSwordStruck,
+        RoundJawedFleaAttack,
+        RoundJawedFleaDie,
+        RoundJawedFleaStruck,
 
 
 

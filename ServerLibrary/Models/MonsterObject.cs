@@ -607,6 +607,13 @@ namespace Server.Models
                     };
                 case 127:
                     return new JinchonDevil { MonsterInfo = monsterInfo, CastDelay = TimeSpan.FromSeconds(8), DeathCloudDurationMin = 2000, DeathCloudDurationRandom = 5000 };
+                case 128:
+                    return new CloackedWolfManHorse
+                    {
+                        MonsterInfo = monsterInfo, //get all the stats for the monster
+                        SpawnList = { [SEnvir.MonsterInfoList.Binding.First(x => x.Flag == MonsterFlag.CloackedWolfManHorseRider)] = 1 }
+                        //above sends the monster to be spawned (here we look for the first monster with the flag "CloackedWolfManHorseRider" and spawn one?
+                    };
                 default:
                     return new MonsterObject { MonsterInfo = monsterInfo };
             }

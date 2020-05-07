@@ -259,6 +259,8 @@ namespace Library
             [LibraryFile.Mon_56] = @"Data\Mon-56.Zl",
             [LibraryFile.mon26_1] = @"Data\Converts\mon26-1.Zl",
             [LibraryFile.mon26_1] = @"Data\Converts\mon26-2.Zl",
+            [LibraryFile.Mon_HornedDemon]= @"Data\converts\Mon-HornedDemon.zl",
+            [LibraryFile.Mon_RoundJawedFlea] = @"Data\converts\Mon-RoundJawFlea.zl",
 
             [LibraryFile.Magic] = @"Data\Magic.Zl",
             [LibraryFile.MagicEx] = @"Data\MagicEx.Zl",
@@ -660,6 +662,8 @@ namespace Library
         Mon_001,
         mon26_1,
         mon26_2,
+        Mon_HornedDemon,
+        Mon_RoundJawedFlea,
 
 
         Magic, 

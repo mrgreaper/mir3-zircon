@@ -2050,7 +2050,7 @@ namespace Client.Models
                     break;
 
                 case MonsterImage.CloakedWolfManSword:
-                    CEnvir.LibraryList.TryGetValue(LibraryFile.mon26_1, out BodyLibrary);
+                    CEnvir.LibraryList.TryGetValue(LibraryFile.mon26_2, out BodyLibrary);
                     BodyShape = 0;
                     AttackSound = SoundIndex.CloakedWolfManSwordAttack;
                     StruckSound = SoundIndex.CloakedWolfManSwordStruck;
@@ -2066,6 +2066,25 @@ namespace Client.Models
                     StruckSound = SoundIndex.CloakedWolfManSwordStruck;
                     DieSound = SoundIndex.CloakedWolfManSwordDie;
                     foreach (KeyValuePair<MirAnimation, Frame> frame in FrameSet.CloakedWolfManHorse)
+                        Frames[frame.Key] = frame.Value;
+                    break;
+
+                case MonsterImage.HornedDemon:
+                    CEnvir.LibraryList.TryGetValue(LibraryFile.Mon_HornedDemon, out BodyLibrary);
+                    BodyShape = 0;
+                    AttackSound = SoundIndex.CloakedWolfManSwordAttack;
+                    StruckSound = SoundIndex.CloakedWolfManSwordStruck;
+                    DieSound = SoundIndex.CloakedWolfManSwordDie;
+                    foreach (KeyValuePair<MirAnimation, Frame> frame in FrameSet.HornedDemon)
+                        Frames[frame.Key] = frame.Value;
+                    break;
+                case MonsterImage.RoundJawedFlea:
+                    CEnvir.LibraryList.TryGetValue(LibraryFile.Mon_RoundJawedFlea, out BodyLibrary);
+                    BodyShape = 0;
+                    AttackSound = SoundIndex.RoundJawedFleaAttack;
+                    StruckSound = SoundIndex.RoundJawedFleaStruck;
+                    DieSound = SoundIndex.RoundJawedFleaDie;
+                    foreach (KeyValuePair<MirAnimation, Frame> frame in FrameSet.RoundJawedFlea)
                         Frames[frame.Key] = frame.Value;
                     break;
 
