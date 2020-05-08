@@ -11,6 +11,7 @@ using Server.Envir;
 using Server.Models.Monsters;
 using S = Library.Network.ServerPackets;
 using C = Library.Network.ClientPackets;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Server.Models
 {
@@ -159,7 +160,20 @@ namespace Server.Models
             gainItem = SEnvir.CreateDropItem(toGive, 1);
             GainItem(gainItem);
             */
-           
+
+            /* not working
+            NPCPage thepage = new NPCPage();
+            thepage= Globals.NPCPageList.Binding.FirstOrDefault(x => x.Description.Contains("Fred Start"));
+            //Enqueue(NPCCall(thepage.));
+            NPCObject teser = new NPCObject();
+            teser.NPCCall(Character.Player, NPCPage);
+            */
+            
+            //var monsterInfo = SEnvir.GetMonsterInfo("Oma");
+            //var npc = MonsterObject.GetMonster(monsterInfo);
+         
+            //npc.Spawn(CurrentMap.Info,Functions.Move(CurrentLocation, Direction));
+
             Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
             SEnvir.Log($"[some one pressed the button!] Index: {Character.Index}, Name: {Character.CharacterName}, pressed the forbidden button of test!");
             return;

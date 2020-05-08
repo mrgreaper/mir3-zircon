@@ -3061,6 +3061,7 @@ namespace Server.Envir
             account.Referral = refferal;
             account.CreationIP = con.IPAddress;
             account.CreationDate = Now;
+            account.ResetKey = string.Empty;
 
             if (refferal != null)
             {
@@ -3205,9 +3206,9 @@ namespace Server.Envir
             }
 
             SendResetPasswordRequestEmail(account, con.IPAddress);
+            Log($"[Request Password] Account: {account.EMailAddress}, IP Address: {con.IPAddress}, Security: {p.CheckSum}");
             con.Enqueue(new S.RequestPasswordReset { Result = RequestPasswordResetResult.Success });
 
-            Log($"[Request Password] Account: {account.EMailAddress}, IP Address: {con.IPAddress}, Security: {p.CheckSum}");
         }
         public static void ResetPassword(C.ResetPassword p, SConnection con)
         {
@@ -3702,8 +3703,9 @@ namespace Server.Envir
         private static void SendResetPasswordRequestEmail(AccountInfo account, string ipAddress)
         {
             account.ResetKey = Functions.RandomString(Random, 20);
-            account.ResetTime = Now.AddMinutes(5);
+            account.ResetTime = Now.AddMinutes(1440);
             EMailsSent++;
+
 
             Task.Run(() =>
             {

@@ -82,7 +82,7 @@ namespace Client.Envir
                 {
                     CEnvir.WrongVersion = true;
 
-                    DXMessageBox.Show("Disconnected from server\nReason: Wrong Version.", "Disconnected", DialogAction.Close).Modal = false;
+                    DXMessageBox.Show("Disconnected from server\nReason: Wrong Version. \nPlease run launcher to update", "Disconnected", DialogAction.Close).Modal = false;
                 }
 
                 scene.Disconnected();
@@ -200,7 +200,10 @@ namespace Client.Envir
                     login.LoginBox.PasswordTextBox.TextBox.Text = login.AccountBox.Password1TextBox.TextBox.Text;
                     login.AccountBox.Clear();
                     DXMessageBox.Show("Your account was created successfully.\n" +
+                                      "You may now log in.", "Account Creation");
+                    /*DXMessageBox.Show("Your account was created successfully.\n" +
                                       "Please follow the instructions sent to your E-Mail to activate.", "Account Creation");
+                                      */
                     break;
             }
 
@@ -348,7 +351,11 @@ namespace Client.Envir
                 case RequestPasswordResetResult.Success:
                     login.RequestPassswordBox.Clear();
                     DXMessageBox.Show("Password reset request success\n" +
+                  "Please contact an Admin for your reset key.", "Reset Password");
+                    /*
+                    DXMessageBox.Show("Password reset request success\n" +
                                       "Please check your E-Mail for further instructions.", "Reset Password");
+                                      */
                     break;
             }
 
@@ -457,8 +464,11 @@ namespace Client.Envir
                     break;
                 case RequestActivationKeyResult.Success:
                     login.RequestActivationBox.Clear();
-                    DXMessageBox.Show("Activation e-mail request was successful\n" +
+                    DXMessageBox.Show("Activation is currently not required\n" +
+                                      "You can log on now.", "Request Activation Key");
+                    /*DXMessageBox.Show("Activation e-mail request was successful\n" +
                                       "Please check your E-Mail for further instructions.", "Request Activation Key");
+                                      */
                     break;
             }
 

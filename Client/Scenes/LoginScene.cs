@@ -686,7 +686,7 @@ namespace Client.Scenes
                 ForgotPasswordLabel = new DXLabel()
                 {
                     Parent = this,
-                    Text = "Forgot Password? (not currently working)",
+                    Text = "Forgot Password?",
                     Sound = SoundIndex.ButtonC,
                 };
                 ForgotPasswordLabel.MouseEnter += (o, e) => ForgotPasswordLabel.ForeColour = Color.White;
