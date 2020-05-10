@@ -111,6 +111,7 @@ namespace Server.Models
         public bool CompanionLevelLock3, CompanionLevelLock5, CompanionLevelLock7, CompanionLevelLock10, CompanionLevelLock11, CompanionLevelLock13, CompanionLevelLock15;
         public bool ExtractorLock;
 
+
         public override bool CanAttack => base.CanAttack && Horse == HorseType.None;
         public override bool CanCast => base.CanCast && Horse == HorseType.None;
 
@@ -149,7 +150,13 @@ namespace Server.Models
 
         public decimal SwiftBladeLifeSteal, FlameSplashLifeSteal, DestructiveSurgeLifeSteal;
 
-        public void testAction()
+        //for testAction
+        public Map oldmap = null;
+        public Point oldlocation;
+        public bool InSanctuary;
+
+
+        public void SanctuaryButton()
         {
             //Character.Account.HuntGold = 0;
             //Enqueue(new S.HuntGoldChanged { HuntGold = Character.Account.HuntGold });
@@ -168,14 +175,65 @@ namespace Server.Models
             NPCObject teser = new NPCObject();
             teser.NPCCall(Character.Player, NPCPage);
             */
-            
+
             //var monsterInfo = SEnvir.GetMonsterInfo("Oma");
             //var npc = MonsterObject.GetMonster(monsterInfo);
-         
-            //npc.Spawn(CurrentMap.Info,Functions.Move(CurrentLocation, Direction));
 
-            Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
+            //npc.Spawn(CurrentMap.Info,Functions.Move(CurrentLocation, Direction));
+            
+            
+            MapInfo info = SEnvir.MapInfoList.Binding.FirstOrDefault(x => string.Compare(x.FileName, "xd2205", StringComparison.OrdinalIgnoreCase) == 0);
+            
+            Map map = SEnvir.GetMap(info);
+
+            if (map == null) return;
+
+
+            if (Level > 2)
+            {
+                if (!InSanctuary)
+                {
+                    InSanctuary = true;
+                    oldmap = CurrentMap;
+                    oldlocation = CurrentLocation;
+                    Connection.ReceiveChat("Sending you to Sanctuary. ", MessageType.System);
+                    Teleport(map, map.GetRandomLocation());
+                }
+                else
+                {
+                    InSanctuary = false;
+                    if (oldmap != null)
+                    {
+                        Connection.ReceiveChat("Sending you back. ", MessageType.System);
+                        Teleport(oldmap, oldlocation);
+                    }
+                    else
+                    {
+                        MapInfo info2 = SEnvir.MapInfoList.Binding.FirstOrDefault(x => string.Compare(x.FileName, "xd2205", StringComparison.OrdinalIgnoreCase) == 0).ReconnectMap; //can be done smoother but this allows us to change that later
+
+                        Map map2 = SEnvir.GetMap(info);
+                        Connection.ReceiveChat("Old location Lost. ", MessageType.System);
+                        if (map2.HasSafeZone)
+                        {
+                            Teleport(map2, map2.GetRandomLocation());
+                        }
+                        else
+                        {
+                            Teleport(map2, map2.GetRandomLocation()); //perhaps town teleport them if the map does not have a safe zone?
+                        }
+                    }
+                }
+                
+
+            }else
+            {
+                Connection.ReceiveChat("Level 2 is required to visit Sanctuary. ", MessageType.System);
+            }
+
+            /* old code for the button
+             Connection.ReceiveChat("you pushed the test button, you rebel. ", MessageType.System);
             SEnvir.Log($"[some one pressed the button!] Index: {Character.Index}, Name: {Character.CharacterName}, pressed the forbidden button of test!");
+            */
             return;
         }
         public PlayerObject(CharacterInfo info, SConnection con)

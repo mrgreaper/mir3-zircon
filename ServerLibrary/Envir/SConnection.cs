@@ -496,10 +496,10 @@ namespace Server.Envir
                 Observed.Player.ObserverChat(this, p.Text);
         }
 
-        public void Process(C.TestPushed p)
+        public void Process(C.SanctuaryPushed p)
         {
             if (Stage != GameStage.Game) return;
-            Player.testAction();
+            Player.SanctuaryButton();
         }
         public void Process(C.NPCCall p)
         {

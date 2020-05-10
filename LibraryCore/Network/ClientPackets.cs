@@ -143,7 +143,7 @@ namespace Library.Network.ClientPackets
         public long Count { get; set; }
     }
 
-    public sealed class TestPushed : Packet
+    public sealed class SanctuaryPushed : Packet
     {
 
     }

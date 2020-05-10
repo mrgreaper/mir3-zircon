@@ -16,7 +16,7 @@ namespace Client.Scenes.Views
     {
         #region Properties
         private DXTabControl TabControl;
-        private DXTab CharacterTab, StatsTab, HermitTab ,TestTab;
+        private DXTab CharacterTab, StatsTab, HermitTab ,xtremeTab;
         public DXLabel CharacterNameLabel, GuildNameLabel, GuildRankLabel;
 
         public DXImageControl MarriageIcon;
@@ -72,11 +72,11 @@ namespace Client.Scenes.Views
                 Border = true,
                 TabButton = { Label = { Text = "Hermit" } },
             };
-            TestTab = new DXTab
+            xtremeTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Test" } },
+                TabButton = { Label = { Text = "Xtreme" } },
             };
             DXControl namePanel = new DXControl
             {
@@ -1604,24 +1604,24 @@ namespace Client.Scenes.Views
             //lets put some text into the tab
             label = new DXLabel
             {
-                Parent = TestTab,
-                Text = "Work in progress"
+                Parent = xtremeTab,
+                Text = "Press Sanctuary to teleport to and from Sanctuary"
             };
-            label.Location = new Point(TestTab.Size.Width / 4 - label.Size.Width + 25, 15);
+            label.Location = new Point(1, 15);
 
             //lets make the button
             but = new DXButton
             {
-                Parent = TestTab,
+                Parent = xtremeTab,
                 Location = new Point(100, but.Location.Y + 25),
-                Label = { Text = "Test button" },
+                Label = { Text = "Sanctuary" },
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(80, SmallButtonHeight)
             };
             but.MouseClick += (o, e) =>
             {
                 //so we do stuff here
-                CEnvir.Enqueue(new C.TestPushed { });
+                CEnvir.Enqueue(new C.SanctuaryPushed { });
             };
 
 
